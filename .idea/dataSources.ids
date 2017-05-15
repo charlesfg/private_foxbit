@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Sqlite (Xerial) - db.sqlite3" uuid="8d3a9c77-4dfa-4478-90af-1fb64a411363">
+    <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="backend_order" schema="" catalog="" type="TABLE">
+      <column name="ClOrdId" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="OrderId" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="CumQty" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="OrdStatus" sqlType="VARCHAR(1)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="LeavesQty" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="CxlQty" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="AvgPx" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="Symbol" sqlType="VARCHAR(6)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="Side" sqlType="VARCHAR(1)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="OrdType" sqlType="VARCHAR(1)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="OrderQty" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="Price" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="OrderDate" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="Volume" sqlType="BIGINT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="TimeInForce" sqlType="VARCHAR(1)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="orderid"/>
+    </table>
+    <table name="django_migrations" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="app" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR(255)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+    </table>
+  </data-source>
+</component>

@@ -11,7 +11,7 @@ import requests
 import datetime
 import logging
 from config import secret, key, CURRENCY, BLINKTRADE_API_URL, BLINKTRADE_API_VERSION, user_agent, BROKER_ID, SYMBOL
-
+import json
 logger = logging.getLogger('trade')
 
 def send_msg(msg):
@@ -47,14 +47,35 @@ def balance():
   return send_msg(msg)
 
 
-def orders(page=0, page_size=20):
+def orders(page=0, page_size=20, filter_orders=1):
+    """
+
+    :param page:
+    :param page_size:
+    :param filter_orders:
+        0 = All
+        1 = Open Orders
+        2 = Executed
+        3 = Canceled
+    :return:
+    """
+
+    dict_filter = {
+        1 : "has_leaves_qty eq 1",
+        2 : "has_cum_qty eq 1",
+        3 : "has_cxl_qty eq 1",  # Seems not to work
+    }
+
     msg = {
         "MsgType": "U4",  # Balance Request
         "OrdersReqID": 1,
         "Page": page,
         "PageSize": page_size
-
     }
+
+    if filter_orders > 0 and filter_orders < 4:
+        msg["Filter"] = [dict_filter[filter_orders]]
+
     return send_msg(msg)
 
 def send_order(ClOrdID, Price, OrderQty, Buy):
@@ -100,8 +121,14 @@ def bitcoin_to_satoshi(bt_float):
 def buy_btc():
     return None
 
+def print_pretty(obj):
+    print json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': '))
+
 if __name__ == '__main__':
     #b = send_order(2,reais_to_satoshi(6901.59),bitcoin_to_satoshi(0.00997500),"2")
     #b = cancel_order(1)
-    print balance()
+
+
+    print_pretty(orders(filter_orders=0))
+
 
